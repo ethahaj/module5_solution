@@ -1,0 +1,59 @@
+<div class="container">
+    <h3>Please provide your informaton</h3>
+    <br>
+    
+    <form class="form-horizontal" name="signupform" novalidate>
+        <div class="form-group">
+            <label class="col-sm-2">First Name</label>
+            <div class="col-sm-10">
+                <input class="sign-up" type="text" name="fname" ng-model="signUpCtrl.fname" required>
+                <span ng-if="signupform.fname.$error.required && signupform.fname.$touched">
+                    Please enter First name
+          </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Last Name</label>
+            <div class="col-sm-10">
+                <input class="sign-up" type="text" name="lname" required ng-model="signUpCtrl.lname">
+                <span ng-if="signupform.lname.$error.required && signupform.lname.$touched">
+                     Please enter Last name
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Email Address</label>
+            <div class="col-sm-10">
+                <input class="sign-up" type="email" name="email" required ng-model="signUpCtrl.email">
+                <span ng-if="(signupform.email.$invalid || signupform.email.$error.required) && signupform.email.$touched">
+                     Must be a valid email address: handle@domain format
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Phone Number</label>
+            <div class="col-sm-10">
+                <input class="sign-up" type="text" name="phone" ng-model="signUpCtrl.phone" 
+                placeholder="###-###-####" pattern="\d{3}-\d{3}-\d{4}">
+                <span ng-if="signupform.phone.$invalid && signupform.phone.$touched">
+                    Phone number must be in the format ###-###-####
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Menu Number</label>
+            <div class="col-sm-10">
+                <input class="sign-up" type="text" name="menunum" required ng-model="signUpCtrl.menunum">
+                 <span ng-if="signupform.menunum.$error.required && signupform.menunum.$touched">
+                     Please enter Menu Number
+                 </span>
+                 <span ng-if="signUpCtrl.menuInValid">No such menu number exists</span>
+            </div>
+        </div>
+        <button class="btn btn-primary" ng-disabled="signupform.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+    </form>
+
+    <div ng-if="signUpCtrl.formValid">
+        Your information has been saved.
+    </div>
+</div>

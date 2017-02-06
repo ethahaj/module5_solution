@@ -1,0 +1,17 @@
+<h3>Your saved Preferences</h3>
+<div ng-if="myInfoCtrl.register">
+    Not Signed Up Yet. <a ui-sref="public.signUp"> Sign Up Now!</a>
+</div>
+<div ng-if="!(myInfoCtrl.register)">
+    {{ myInfoCtrl.user.FirstName}}<br> 
+    {{ myInfoCtrl.user.LastName}}<br> 
+    {{ myInfoCtrl.user.Email}}<br> 
+    {{ myInfoCtrl.user.Phone}}<br> 
+    Your Favorite Item is <br>   
+    {{ myInfoCtrl.user.FavItem.name}}<br>
+    {{ myInfoCtrl.user.FavItem.description}}<br>
+    <img class="img-responsive" width="250" height="150" 
+    ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.user.FavItem.short_name}}.jpg"
+    alt="{{myInfoCtrl.user.FavItem.name}}"
+    >
+</div>
